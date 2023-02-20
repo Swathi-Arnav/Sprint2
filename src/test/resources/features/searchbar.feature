@@ -4,7 +4,7 @@ Feature:Search for product
     When The User Enter the product name
     Then The Product should be displayed
 
-  Scenario: Verify that the search field is presented with aligned
+  Scenario: Verify that search field is present with aligned
     Given The User navigates to Home page
     Then The Home page should be displayed
 
