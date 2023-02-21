@@ -22,14 +22,14 @@ public class Hooks {
 
     }
 
-   /*@After(order = 1)
+   @After(order = 1)
     public void takeScreenShot(Scenario scenario){
         if (scenario.isFailed()){
             TakesScreenshot ts = (TakesScreenshot) browserManager.getDriver();
             byte[] src = ts.getScreenshotAs(OutputType.BYTES);
             scenario.attach(src,"image/png","screenshot");
         }
-    }*/
+    }
 
     @After(order = 0)
     public void tearDown()

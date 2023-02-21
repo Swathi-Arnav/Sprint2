@@ -38,7 +38,6 @@ public class StepDefinitions {
        homePage = new Homepage(driver);
         homePage.getClosed().sendKeys(Keys.ENTER);
         homePage.getSearchBar().sendKeys(Keys.ENTER);
-       // System.out.println(1 / 0);
         data = TestDataReader.getData(scenario.getName());
     }
     @When("The User Enter the product name")
