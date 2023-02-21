@@ -1,20 +1,25 @@
 package Steps;
 
+import Pages.Homepage;
 import Utils.BrowserManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
     private BrowserManager browserManager;
+
     public Hooks(BrowserManager browserManager){
         this.browserManager = browserManager;
     }
     @Before(order = 0)
     public void setUp(){
+
         browserManager.setDriver();
+
     }
 
    /*@After(order = 1)

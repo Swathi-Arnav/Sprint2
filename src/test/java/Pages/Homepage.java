@@ -14,6 +14,8 @@ public class Homepage {
         PageFactory.initElements(driver,this);
     }
 
+
+
     @FindBy(xpath = "//input[@class=\"_3704LK\"]")
     WebElement SearchBar;
 
@@ -43,10 +45,17 @@ public class Homepage {
         return Search;
     }
 
-    @FindBy(xpath = "//input[@class=\"_3704LK\"]")
+    @FindBy(xpath = "//div[@class=\"_3uTeW4\"]")
     WebElement Error;
 
     public WebElement getError() {
         return Error;
     }
+
+    public WebElement getClosed() {
+        return closed;
+    }
+
+    @FindBy(xpath = "//button[@class='_2KpZ6l _2doB4z']")
+    WebElement closed;
 }

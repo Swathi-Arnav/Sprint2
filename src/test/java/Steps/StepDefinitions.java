@@ -9,6 +9,7 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -35,6 +36,7 @@ public class StepDefinitions {
     public void the_user_navigates_to_home_page()throws InvalidArgumentException {
        driver.get(QaPros.getValue("url"));
        homePage = new Homepage(driver);
+        homePage.getClosed().sendKeys(Keys.ENTER);
         homePage.getSearchBar().sendKeys(Keys.ENTER);
        // System.out.println(1 / 0);
         data = TestDataReader.getData(scenario.getName());
@@ -87,7 +89,17 @@ public class StepDefinitions {
     }
 
 
+    @Given("user is able to access the search bar")
+    public void userIsAbleToAccessTheSearchBar() {
+        System.out.println("The user can access to the home page.");
+    }
 
 
+    @Then("Error page should be displayed")
+    public void error_page_should_be_displayed() throws InvalidArgumentException{
+        String error = homePage.getError().getText();
+        Assert.assertEquals(error,"Sorry, no results found!");
+
+    }
 }
 
