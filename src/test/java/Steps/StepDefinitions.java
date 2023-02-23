@@ -9,10 +9,10 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.util.HashMap;
@@ -22,6 +22,8 @@ public class StepDefinitions {
     Homepage homePage;
    HashMap<String,String>data;
    Scenario scenario;
+
+
 
 
     public StepDefinitions(BrowserManager browserManager){
@@ -87,18 +89,25 @@ public class StepDefinitions {
         homePage.getSearch().sendKeys(Keys.ENTER);
     }
 
-
-    @Given("user is able to access the search bar")
-    public void userIsAbleToAccessTheSearchBar() {
-        System.out.println("The user can access to the home page.");
-    }
-
-
     @Then("Error page should be displayed")
     public void error_page_should_be_displayed() throws InvalidArgumentException{
         String error = homePage.getError().getText();
         Assert.assertEquals(error,"Sorry, no results found!");
 
+    }
+
+    @When("The user enter the search as {string}.")
+    public void the_user_enter_the_search_as(String string) throws InterruptedException {
+       Thread.sleep(1000);
+        WebElement b = homePage.getSearchBar();
+        b.sendKeys(string);
+        b.sendKeys(Keys.ENTER);
+        Thread.sleep(1000);
+    }
+
+
+    @Then("The result should be displayed.")
+    public void theResultShouldBeDisplayed() {
     }
 }
 

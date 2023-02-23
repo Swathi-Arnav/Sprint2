@@ -1,7 +1,13 @@
 Feature:Search for product
 
-Background:  User can access the search bar
-  Given  user is able to access the search bar
+  Scenario Outline:Verify that the user can able to search
+    Given The User navigates to Home page
+    When The user enter the search as "<searchfield>".
+    Then The result should be displayed.
+    Examples:
+      | searchfield |
+      |Appliances   |
+      |Sports       |
 
   Scenario: Verify that the user can search a product
     Given The User navigates to Home page
