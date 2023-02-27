@@ -92,17 +92,17 @@ public class StepDefinitions {
     @Then("Error page should be displayed")
     public void error_page_should_be_displayed() throws InvalidArgumentException{
         String error = homePage.getError().getText();
-        Assert.assertEquals(error,"Sorry, no results found!");
+        Assert.assertEquals(error,data.get("Output"));
 
     }
 
     @When("The user enter the search as {string}.")
     public void the_user_enter_the_search_as(String string) throws InterruptedException {
-       Thread.sleep(1000);
+
         WebElement b = homePage.getSearchBar();
         b.sendKeys(string);
         b.sendKeys(Keys.ENTER);
-        Thread.sleep(1000);
+
     }
 
 
